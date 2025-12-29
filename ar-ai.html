@@ -9,37 +9,66 @@
   <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.5/aframe/build/aframe-ar.min.js"></script>
 
   <style>
-    body { margin: 0; overflow: hidden; }
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+    }
     .hint {
       position: fixed;
-      bottom: 20px;
+      bottom: 0;
       width: 100%;
       text-align: center;
       color: white;
-      font-family: Arial;
-      background: rgba(0,0,0,0.6);
-      padding: 10px;
+      font-family: Arial, sans-serif;
+      background: rgba(0,0,0,0.7);
+      padding: 12px;
+      z-index: 10;
     }
   </style>
 </head>
 
 <body>
 
-<a-scene
-  embedded
-  arjs="debugUIEnabled: true; sourceType: webcam;"
->
+  <a-scene
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: true;"
+    renderer="logarithmicDepthBuffer: true;"
+  >
+
+    <!-- HIRO Marker -->
     <a-marker preset="hiro">
-      <a-box position="0 0.5 0" material="color: #38bdf8"></a-box>
-      <a-text value="AI THINKING" position="0 1.2 0" align="center"></a-text>
+
+      <!-- BIG, HIGH, ANIMATED OBJECT -->
+      <a-box
+        position="0 1 0"
+        depth="1"
+        height="1"
+        width="1"
+        color="#38bdf8"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"
+      ></a-box>
+
+      <!-- Floating Text -->
+      <a-text
+        value="AI THINKING"
+        position="0 2.2 0"
+        align="center"
+        color="#ffffff"
+        scale="2 2 2"
+      ></a-text>
+
     </a-marker>
 
+    <!-- Camera -->
     <a-entity camera></a-entity>
+
   </a-scene>
 
   <div class="hint">
-    Point your camera at a HIRO marker to see AI in AR
+    📷 Point your camera at the HIRO marker (flat, well-lit)
   </div>
 
 </body>
 </html>
+
