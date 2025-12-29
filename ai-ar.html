@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>AI & AR Learning | EduVerse</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #020617;
-      color: white;
+      color: #e5e7eb;
     }
     header {
       background: #0f172a;
-      padding: 30px;
+      padding: 25px;
       text-align: center;
     }
     section {
@@ -22,48 +22,39 @@
       margin: auto;
       padding: 25px;
     }
-    h2 {
-      color: #38bdf8;
-    }
     .card {
       background: #0f172a;
       border-radius: 12px;
       padding: 25px;
       margin-bottom: 20px;
     }
-    .accordion {
-      cursor: pointer;
-      font-weight: bold;
+    h2 {
+      color: #38bdf8;
+    }
+    .lesson {
       margin-top: 15px;
-      padding: 12px;
+      padding: 15px;
       background: #020617;
-      border-radius: 6px;
+      border-radius: 8px;
+      cursor: pointer;
     }
-    .panel {
-      display: none;
-      margin-top: 10px;
-      line-height: 1.7;
-      color: #e5e7eb;
+    .lesson:hover {
+      background: #020617;
+      outline: 1px solid #38bdf8;
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 15px;
-      margin-top: 15px;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
+    .done {
+      color: #22c55e;
+      font-weight: bold;
     }
     button {
-      margin-top: 25px;
-      padding: 12px 20px;
+      margin-top: 20px;
+      padding: 10px 16px;
       background: #38bdf8;
+      color: #020617;
       border: none;
       border-radius: 6px;
-      font-weight: bold;
       cursor: pointer;
-      color: #020617;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -71,147 +62,85 @@
 <body>
 
 <header>
-  <h1>Artificial Intelligence & Augmented Reality</h1>
-  <p>Understand how AI and AR are transforming education, business, and careers</p>
+  <h1>AI & AR Learning 📘</h1>
+  <p>Tap each lesson to learn and earn progress</p>
 </header>
 
-<section class="card">
-  <h2>What is Artificial Intelligence (AI)?</h2>
-  <p>
-    Artificial Intelligence (AI) is the ability of computers and software
-    to perform tasks that normally require human intelligence.
-  </p>
-  <p>
-    AI systems can learn from data, recognize patterns, make decisions,
-    and continuously improve over time.
-  </p>
-</section>
+<section>
 
-<section class="card">
-  <h2>What is Augmented Reality (AR)?</h2>
-  <p>
-    Augmented Reality (AR) is a technology that places digital objects,
-    images, or information into the real world using devices like phones,
-    tablets, or computers.
-  </p>
-</section>
+  <div class="card">
+    <h2>Artificial Intelligence Basics</h2>
 
-<section class="card">
-  <h2>AR Visual Gallery (Real-World Examples)</h2>
+    <div class="lesson" onclick="completeAI(this)">
+      🤖 What is Artificial Intelligence?
+    </div>
 
-  <div class="gallery">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Augmented_Reality_Sandbox.jpg" alt="AR Education">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/AR_Maintenance.jpg" alt="AR in Maintenance">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Augmented_reality_smartphone.jpg" alt="AR Smartphone">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Microsoft_HoloLens_2.jpg" alt="AR Headset">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/AR_navigation.jpg" alt="AR Navigation">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/AR_medical_training.jpg" alt="AR Medical">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/AR_architecture.jpg" alt="AR Architecture">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/AR_gaming.jpg" alt="AR Gaming">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/AR_retail.jpg" alt="AR Retail">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/AR_education_classroom.jpg" alt="AR Classroom">
-  </div>
-</section>
+    <div class="lesson" onclick="completeAI(this)">
+      📚 How AI Helps Students Learn Better
+    </div>
 
-<section class="card">
-  <h2>How AI Helps Students</h2>
+    <div class="lesson" onclick="completeAI(this)">
+      🏢 How AI Helps Businesses Grow
+    </div>
 
-  <div class="accordion">📘 Personalized Learning Support</div>
-  <div class="panel">
-    AI can understand how a student learns and adapt lessons to their level.
-    For example, if a student struggles with math, AI can slow down,
-    explain concepts differently, and give extra practice. This helps
-    students learn at their own pace without pressure.
+    <div class="lesson" onclick="completeAI(this)">
+      🚀 AI and Your Career
+    </div>
   </div>
 
-  <div class="accordion">📗 Homework & Study Assistance</div>
-  <div class="panel">
-    AI tools can help students research topics, summarize lessons,
-    explain difficult questions, and guide them step-by-step.
-    This does not replace thinking — it supports understanding.
+  <div class="card">
+    <h2>Augmented Reality (AR)</h2>
+
+    <div class="lesson" onclick="completeAR(this)">
+      📱 What is Augmented Reality?
+    </div>
+
+    <div class="lesson" onclick="completeAR(this)">
+      🧠 AR in Education
+    </div>
+
+    <div class="lesson" onclick="completeAR(this)">
+      🏗 AR in Architecture & Design
+    </div>
+
+    <div class="lesson" onclick="completeAR(this)">
+      🛒 AR in Shopping & Marketing
+    </div>
   </div>
 
-  <div class="accordion">📙 Language & Skill Development</div>
-  <div class="panel">
-    AI helps students learn new languages, coding, digital skills,
-    and communication. Many students in Africa already use AI tools
-    to improve English, writing, and computer literacy.
-  </div>
+  <button onclick="goDashboard()">← Back to Dashboard</button>
 
-  <div class="accordion">📕 Learning Anytime, Anywhere</div>
-  <div class="panel">
-    With AI, learning is not limited to classrooms.
-    Students can learn using phones, tablets, or laptops —
-    even with limited resources.
-  </div>
-</section>
-
-<section class="card">
-  <h2>How AI Helps Businesses</h2>
-
-  <div class="accordion">🏢 Automation & Efficiency</div>
-  <div class="panel">
-    AI automates repetitive tasks like data entry, scheduling,
-    and customer support. This saves time and allows businesses
-    to focus on growth and creativity.
-  </div>
-
-  <div class="accordion">📊 Data & Decision Making</div>
-  <div class="panel">
-    Businesses use AI to analyze large amounts of data and
-    predict trends. This helps companies make smarter decisions
-    faster than humans alone.
-  </div>
-
-  <div class="accordion">💬 Customer Experience</div>
-  <div class="panel">
-    AI chatbots and assistants help businesses communicate
-    with customers 24/7, improving satisfaction and trust.
-  </div>
-
-  <div class="accordion">💰 Cost Reduction</div>
-  <div class="panel">
-    AI reduces errors, improves accuracy, and lowers operational costs.
-    Many African startups now use AI to compete globally.
-  </div>
-</section>
-
-<section class="card">
-  <h2>AI & Your Career</h2>
-
-  <div class="accordion">🚀 Career Opportunities</div>
-  <div class="panel">
-    AI has created new careers such as AI engineers,
-    data analysts, AR designers, and prompt engineers.
-    These roles are in high demand worldwide.
-  </div>
-
-  <div class="accordion">🌍 Real-World Example</div>
-  <div class="panel">
-    Today, companies like Google, Microsoft, and African tech startups
-    use AI to build products used by millions of people.
-    Learning AI gives students access to global opportunities.
-  </div>
-
-  <div class="accordion">📈 Future-Proof Skills</div>
-  <div class="panel">
-    AI skills help future-proof careers.
-    Even non-technical jobs now require AI understanding.
-  </div>
-
-  <button onclick="window.location.href='dashboard.html'">
-    Back to Dashboard
-  </button>
 </section>
 
 <script>
-  const acc = document.getElementsByClassName("accordion");
-  for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function () {
-      this.classList.toggle("active");
-      const panel = this.nextElementSibling;
-      panel.style.display = panel.style.display === "block" ? "none" : "block";
-    });
+  function completeAI(el) {
+    if (el.classList.contains("done")) return;
+
+    el.classList.add("done");
+    el.innerText += " ✅ Completed";
+
+    let progress = Number(localStorage.getItem("aiProgress")) || 0;
+    progress = Math.min(progress + 25, 100);
+    localStorage.setItem("aiProgress", progress);
+
+    alert("AI lesson completed! Progress updated.");
+  }
+
+  function completeAR(el) {
+    if (el.classList.contains("done")) return;
+
+    el.classList.add("done");
+    el.innerText += " ✅ Completed";
+
+    let progress = Number(localStorage.getItem("arProgress")) || 0;
+    progress = Math.min(progress + 25, 100);
+    localStorage.setItem("arProgress", progress);
+
+    alert("AR lesson completed! Progress updated.");
+  }
+
+  function goDashboard() {
+    window.location.href = "dashboard.html";
   }
 </script>
 
