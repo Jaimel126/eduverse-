@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EduVerse Certificate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: #020617;
+      color: #020617;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .certificate {
+      background: #ffffff;
+      width: 900px;
+      padding: 50px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    }
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 26px;
+      margin: 20px 0;
+    }
+    .name {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+    .course {
+      font-size: 22px;
+      margin: 10px 0;
+    }
+    .date {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 16px;
+    }
+    .locked {
+      color: #dc2626;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 20px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="certificate" id="certificateBox">
+  <h1>Certificate of Completion</h1>
+
+  <p>This certifies that</p>
+
+  <div class="name" id="studentName">Student</div>
+
+  <p>has successfully completed the course</p>
+
+  <div class="course" id="courseName">AI Basics</div>
+
+  <div class="date">
+    Awarded on <span id="date"></span>
+  </div>
+
+  <div class="footer">
+    EduVerse Learning Platform<br/>
+    Empowering Future Innovators
+  </div>
+
+  <button onclick="goDashboard()">← Back to Dashboard</button>
+</div>
+
+<script>
+  const email = localStorage.getItem("eduverseUser") || "Student";
+  const aiProgress = Number(localStorage.getItem("aiProgress")) || 0;
+
+  document.getElementById("studentName").innerText = email;
+  document.getElementById("date").innerText = new Date().toLocaleDateString();
+
+  if (aiProgress < 100) {
+    document.getElementById("certificateBox").innerHTML = `
+      <h1>🔒 Certificate Locked</h1>
+      <p class="locked">Complete AI Basics to unlock your certificate.</p>
+      <button onclick="window.location.href='dashboard.html'">Go Back</button>
+    `;
+  }
+</script>
+
+</body>
+</html>
