@@ -45,14 +45,16 @@
     <h2>EduVerse Login</h2>
     <input id="email" type="email" placeholder="Email">
     <input id="password" type="password" placeholder="Password">
-    <button id="loginBtn">Login</button>
+    <button onclick="login()">Login</button>
   </div>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+  <!-- Firebase SDKs (NO MODULES) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 
-    const firebaseConfig = {
+  <script>
+    // 🔴 REPLACE THESE WITH YOUR REAL FIREBASE VALUES
+   const firebaseConfig = {
   apiKey: "AIzaSyDidOESF8lPLvFs5ryNcJW0VrP0CnvRDHQ",
   authDomain: "eduverse-bf551.firebaseapp.com",
   projectId: "eduverse-bf551",
@@ -60,13 +62,11 @@
   messagingSenderId: "1048542150292",
   appId: "1:1048542150292:web:50a011a1919f75cc6c3e81"
 };
-  
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
 
-    const loginBtn = document.getElementById("loginBtn");
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-    loginBtn.addEventListener("click", () => {
+    function login() {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
@@ -75,14 +75,14 @@
         return;
       }
 
-      signInWithEmailAndPassword(auth, email, password)
+      auth.signInWithEmailAndPassword(email, password)
         .then(() => {
           window.location.href = "dashboard.html";
         })
-        .catch((error) => {
+        .catch(error => {
           alert(error.message);
         });
-    });
+    }
   </script>
 
 </body>
