@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Basics | EduVerse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+    }
+    header {
+      background: #0f172a;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+      color: #38bdf8;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    .topic {
+      background: #0f172a;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .topic:hover {
+      background: #1e293b;
+    }
+    .content {
+      display: none;
+      margin-top: 10px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background: #38bdf8;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>🟢 AI Basics – EduVerse</header>
+
+<div class="container">
+
+  <!-- TOPIC 1 -->
+  <div class="topic" onclick="toggle(1)">
+    <strong>1. What Is Artificial Intelligence?</strong>
+    <div class="content" id="c1">
+      Artificial Intelligence (AI) is the science of creating machines that can think,
+      learn, and make decisions like humans. AI systems analyze data, recognize patterns,
+      and improve over time. AI is used in phones, education, healthcare, and business.
+      Learning AI helps students prepare for future careers and solve real-world problems.
+    </div>
+  </div>
+
+  <!-- TOPIC 2 -->
+  <div class="topic" onclick="toggle(2)">
+    <strong>2. History of Artificial Intelligence</strong>
+    <div class="content" id="c2">
+      The history of AI began in the 1950s when scientists explored machine intelligence.
+      Over decades, AI evolved from simple rule-based systems to advanced machine learning
+      models. Today, AI powers smart assistants, recommendation systems, and automation.
+    </div>
+  </div>
+
+  <!-- TOPIC 3 -->
+  <div class="topic" onclick="toggle(3)">
+    <strong>3. How AI Works (Simple Explanation)</strong>
+    <div class="content" id="c3">
+      AI works by collecting data, processing it through algorithms, and learning from
+      results. The more data AI systems receive, the better their performance becomes.
+    </div>
+  </div>
+
+  <!-- ADD MORE TOPICS HERE -->
+
+  <button onclick="markCompleted()">Mark AI Basics Completed</button>
+
+</div>
+
+<script>
+function toggle(id) {
+  const el = document.getElementById("c" + id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+function markCompleted() {
+  localStorage.setItem("aiProgress", 100);
+  alert("🎉 AI Basics Completed!");
+  window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>
