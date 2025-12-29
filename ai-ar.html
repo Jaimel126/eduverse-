@@ -14,46 +14,56 @@
     }
     header {
       background: #0f172a;
-      padding: 20px;
+      padding: 30px;
       text-align: center;
     }
     section {
-      padding: 30px;
       max-width: 900px;
       margin: auto;
+      padding: 25px;
     }
     h2 {
       color: #38bdf8;
-      margin-bottom: 10px;
     }
-    p, li {
-      line-height: 1.6;
+    .card {
+      background: #0f172a;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 20px;
+    }
+    .accordion {
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 15px;
+      padding: 12px;
+      background: #020617;
+      border-radius: 6px;
+    }
+    .panel {
+      display: none;
+      margin-top: 10px;
+      line-height: 1.7;
+      color: #e5e7eb;
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 15px;
-      margin-top: 20px;
+      margin-top: 15px;
     }
     .gallery img {
       width: 100%;
       border-radius: 10px;
     }
-    .card {
-      background: #0f172a;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
     button {
-      background: #38bdf8;
-      color: #020617;
-      border: none;
+      margin-top: 25px;
       padding: 12px 20px;
+      background: #38bdf8;
+      border: none;
       border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 20px;
+      color: #020617;
     }
   </style>
 </head>
@@ -62,96 +72,148 @@
 
 <header>
   <h1>Artificial Intelligence & Augmented Reality</h1>
-  <p>Learn how AI and AR are shaping education, business, and careers</p>
+  <p>Understand how AI and AR are transforming education, business, and careers</p>
 </header>
 
 <section class="card">
-  <h2>What is Artificial Intelligence?</h2>
+  <h2>What is Artificial Intelligence (AI)?</h2>
   <p>
-    Artificial Intelligence (AI) is the ability of machines and software
-    to think, learn, and solve problems like humans.
+    Artificial Intelligence (AI) is the ability of computers and software
+    to perform tasks that normally require human intelligence.
   </p>
-  <ul>
-    <li>AI can analyze data</li>
-    <li>AI can recognize images and speech</li>
-    <li>AI can help people make better decisions</li>
-  </ul>
+  <p>
+    AI systems can learn from data, recognize patterns, make decisions,
+    and continuously improve over time.
+  </p>
 </section>
 
 <section class="card">
   <h2>What is Augmented Reality (AR)?</h2>
   <p>
-    Augmented Reality (AR) adds digital objects, images, and information
-    into the real world using phones, tablets, or computers.
+    Augmented Reality (AR) is a technology that places digital objects,
+    images, or information into the real world using devices like phones,
+    tablets, or computers.
   </p>
-  <ul>
-    <li>AR shows 3D objects on real environments</li>
-    <li>AR is used in education, gaming, and training</li>
-    <li>AR helps students understand complex ideas visually</li>
-  </ul>
 </section>
 
 <section class="card">
-  <h2>How Does AR Work?</h2>
-  <ol>
-    <li>The device camera sees the real world</li>
-    <li>Software detects surfaces or images</li>
-    <li>Digital content is placed on top of reality</li>
-    <li>The user interacts with the digital object</li>
-  </ol>
-</section>
-
-<section class="card">
-  <h2>AR Gallery – Examples of AR Creations</h2>
-  <p>These images show how AR is used in different industries.</p>
+  <h2>AR Visual Gallery (Real-World Examples)</h2>
 
   <div class="gallery">
-    <img src="https://source.unsplash.com/300x300/?augmented-reality" />
-    <img src="https://source.unsplash.com/300x300/?ar-technology" />
-    <img src="https://source.unsplash.com/300x300/?virtual-reality" />
-    <img src="https://source.unsplash.com/300x300/?3d-model" />
-    <img src="https://source.unsplash.com/300x300/?digital-art" />
-    <img src="https://source.unsplash.com/300x300/?ai-robot" />
-    <img src="https://source.unsplash.com/300x300/?technology-future" />
-    <img src="https://source.unsplash.com/300x300/?computer-vision" />
-    <img src="https://source.unsplash.com/300x300/?education-technology" />
-    <img src="https://source.unsplash.com/300x300/?innovation-tech" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Augmented_Reality_Sandbox.jpg" alt="AR Education">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/AR_Maintenance.jpg" alt="AR in Maintenance">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Augmented_reality_smartphone.jpg" alt="AR Smartphone">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Microsoft_HoloLens_2.jpg" alt="AR Headset">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/AR_navigation.jpg" alt="AR Navigation">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/AR_medical_training.jpg" alt="AR Medical">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/AR_architecture.jpg" alt="AR Architecture">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/AR_gaming.jpg" alt="AR Gaming">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/AR_retail.jpg" alt="AR Retail">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/AR_education_classroom.jpg" alt="AR Classroom">
   </div>
 </section>
 
 <section class="card">
   <h2>How AI Helps Students</h2>
-  <ul>
-    <li>Personalized learning support</li>
-    <li>Homework assistance</li>
-    <li>Explaining difficult subjects</li>
-    <li>Learning at your own pace</li>
-  </ul>
+
+  <div class="accordion">📘 Personalized Learning Support</div>
+  <div class="panel">
+    AI can understand how a student learns and adapt lessons to their level.
+    For example, if a student struggles with math, AI can slow down,
+    explain concepts differently, and give extra practice. This helps
+    students learn at their own pace without pressure.
+  </div>
+
+  <div class="accordion">📗 Homework & Study Assistance</div>
+  <div class="panel">
+    AI tools can help students research topics, summarize lessons,
+    explain difficult questions, and guide them step-by-step.
+    This does not replace thinking — it supports understanding.
+  </div>
+
+  <div class="accordion">📙 Language & Skill Development</div>
+  <div class="panel">
+    AI helps students learn new languages, coding, digital skills,
+    and communication. Many students in Africa already use AI tools
+    to improve English, writing, and computer literacy.
+  </div>
+
+  <div class="accordion">📕 Learning Anytime, Anywhere</div>
+  <div class="panel">
+    With AI, learning is not limited to classrooms.
+    Students can learn using phones, tablets, or laptops —
+    even with limited resources.
+  </div>
 </section>
 
 <section class="card">
   <h2>How AI Helps Businesses</h2>
-  <ul>
-    <li>Automates repetitive tasks</li>
-    <li>Improves customer service</li>
-    <li>Analyzes market trends</li>
-    <li>Reduces costs and errors</li>
-  </ul>
+
+  <div class="accordion">🏢 Automation & Efficiency</div>
+  <div class="panel">
+    AI automates repetitive tasks like data entry, scheduling,
+    and customer support. This saves time and allows businesses
+    to focus on growth and creativity.
+  </div>
+
+  <div class="accordion">📊 Data & Decision Making</div>
+  <div class="panel">
+    Businesses use AI to analyze large amounts of data and
+    predict trends. This helps companies make smarter decisions
+    faster than humans alone.
+  </div>
+
+  <div class="accordion">💬 Customer Experience</div>
+  <div class="panel">
+    AI chatbots and assistants help businesses communicate
+    with customers 24/7, improving satisfaction and trust.
+  </div>
+
+  <div class="accordion">💰 Cost Reduction</div>
+  <div class="panel">
+    AI reduces errors, improves accuracy, and lowers operational costs.
+    Many African startups now use AI to compete globally.
+  </div>
 </section>
 
 <section class="card">
   <h2>AI & Your Career</h2>
-  <ul>
-    <li>AI skills increase job opportunities</li>
-    <li>AR designers and AI developers are in demand</li>
-    <li>AI knowledge helps in marketing, design, and data</li>
-    <li>Learning AI early gives you an advantage</li>
-  </ul>
+
+  <div class="accordion">🚀 Career Opportunities</div>
+  <div class="panel">
+    AI has created new careers such as AI engineers,
+    data analysts, AR designers, and prompt engineers.
+    These roles are in high demand worldwide.
+  </div>
+
+  <div class="accordion">🌍 Real-World Example</div>
+  <div class="panel">
+    Today, companies like Google, Microsoft, and African tech startups
+    use AI to build products used by millions of people.
+    Learning AI gives students access to global opportunities.
+  </div>
+
+  <div class="accordion">📈 Future-Proof Skills</div>
+  <div class="panel">
+    AI skills help future-proof careers.
+    Even non-technical jobs now require AI understanding.
+  </div>
 
   <button onclick="window.location.href='dashboard.html'">
     Back to Dashboard
   </button>
 </section>
+
+<script>
+  const acc = document.getElementsByClassName("accordion");
+  for (let i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      const panel = this.nextElementSibling;
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
+    });
+  }
+</script>
 
 </body>
 </html>
