@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>EduVerse AR – AI Visualization</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.5/aframe/build/aframe-ar.min.js"></script>
+
+  <style>
+    body { margin: 0; overflow: hidden; }
+    .hint {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-family: Arial;
+      background: rgba(0,0,0,0.6);
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a-scene embedded arjs>
+    <a-marker preset="hiro">
+      <a-box position="0 0.5 0" material="color: #38bdf8"></a-box>
+      <a-text value="AI THINKING" position="0 1.2 0" align="center"></a-text>
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <div class="hint">
+    Point your camera at a HIRO marker to see AI in AR
+  </div>
+
+</body>
+</html>
