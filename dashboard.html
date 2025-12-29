@@ -19,6 +19,8 @@
     }
     .content {
       padding: 20px;
+      max-width: 800px;
+      margin: auto;
     }
     .card {
       background: #0f172a;
@@ -34,6 +36,7 @@
       color: #020617;
       font-weight: bold;
       cursor: pointer;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -42,30 +45,33 @@
 
   <header>
     <h2>EduVerse Dashboard</h2>
-    <p id="userEmail"></p>
+    <p id="userEmail">Loading...</p>
   </header>
 
   <div class="content">
+
     <div class="card">
       <h3>AI Basics</h3>
       <p>Learn what AI is and how it helps students.</p>
-      <button onclick="goToLesson()">Start Lesson</button>
+      <button onclick="goToLesson()">Start / Continue Lesson</button>
     </div>
 
     <div class="card">
       <h3>Your Progress</h3>
-      <p id="progress">No lessons completed yet.</p>
+      <p id="progress">Loading progress...</p>
     </div>
 
     <button onclick="logout()">Logout</button>
+
   </div>
 
-  <!-- Firebase -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
   <script>
-    const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDidOESF8lPLvFs5ryNcJW0VrP0CnvRDHQ",
   authDomain: "eduverse-bf551.firebaseapp.com",
   projectId: "eduverse-bf551",
@@ -73,16 +79,33 @@
   messagingSenderId: "1048542150292",
   appId: "1:1048542150292:web:50a011a1919f75cc6c3e81"
 };
-
     firebase.initializeApp(firebaseConfig);
+
     const auth = firebase.auth();
+    const db = firebase.firestore();
 
     auth.onAuthStateChanged(user => {
       if (!user) {
         window.location.href = "login.html";
-      } else {
-        document.getElementById("userEmail").innerText = user.email;
+        return;
       }
+
+      document.getElementById("userEmail").innerText = user.email;
+
+      db.collection("progress").doc(user.uid).get()
+        .then(doc => {
+          const progressEl = document.getElementById("progress");
+
+          if (doc.exists && doc.data().aiBasics === true) {
+            progressEl.innerText = "✅ AI Basics: Completed";
+          } else {
+            progressEl.innerText = "❌ AI Basics: Not completed yet";
+          }
+        })
+        .catch(() => {
+          document.getElementById("progress").innerText =
+            "No progress recorded yet.";
+        });
     });
 
     function goToLesson() {
