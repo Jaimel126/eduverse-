@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Tutor | EduVerse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+    }
+    header {
+      background: #0f172a;
+      padding: 15px;
+      text-align: center;
+      color: #38bdf8;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 90px;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .answer {
+      background: #0f172a;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>🤖 EduVerse AI Tutor</header>
+
+<div class="container">
+  <p>Ask any learning question about AI, AR, studies, or careers.</p>
+
+  <textarea id="question" placeholder="Type your question here..."></textarea>
+  <button onclick="askTutor()">Ask AI Tutor</button>
+
+  <div id="response" class="answer" style="display:none;"></div>
+</div>
+
+<script>
+function askTutor() {
+  const q = document.getElementById("question").value.toLowerCase();
+  const responseBox = document.getElementById("response");
+  let answer = "";
+
+  if (q.includes("what is ai")) {
+    answer = "Artificial Intelligence (AI) is the ability of computers and machines to think, learn, and make decisions like humans. AI helps computers understand information, recognize patterns, and solve problems faster than humans.";
+  } 
+  else if (q.includes("how ai helps students")) {
+    answer = "AI helps students by offering personalized learning, instant explanations, study assistance, language translation, exam preparation, and learning at their own pace. It makes education more flexible and accessible.";
+  }
+  else if (q.includes("how ai helps business")) {
+    answer = "AI helps businesses automate tasks, improve customer service, analyze data, predict trends, reduce costs, and make smarter decisions faster than traditional methods.";
+  }
+  else if (q.includes("what is ar")) {
+    answer = "Augmented Reality (AR) is a technology that adds digital elements like images, videos, or 3D objects to the real world using devices like phones, tablets, or glasses.";
+  }
+  else if (q.includes("career")) {
+    answer = "AI helps careers by creating new job opportunities, improving productivity, helping people learn new skills, and supporting careers in technology, healthcare, education, finance, and more.";
+  }
+  else {
+    answer = "Great question! AI is used in many areas like education, health, business, and creativity. Try asking about AI basics, AR, how AI helps students, or careers.";
+  }
+
+  responseBox.style.display = "block";
+  responseBox.innerHTML = answer;
+}
+</script>
+
+</body>
+</html>
