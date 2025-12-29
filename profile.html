@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Profile | EduVerse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+    }
+    header {
+      background: #0f172a;
+      padding: 25px;
+      text-align: center;
+    }
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 25px;
+    }
+    .card {
+      background: #0f172a;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #38bdf8;
+    }
+    .info {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .level {
+      font-weight: bold;
+      color: #22c55e;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 16px;
+      background: #38bdf8;
+      color: #020617;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Student Profile 👤</h1>
+  <p>Your learning journey on EduVerse</p>
+</header>
+
+<section>
+
+  <div class="card">
+    <h2>📌 Basic Information</h2>
+    <p class="info"><strong>Email:</strong> <span id="email"></span></p>
+    <p class="info"><strong>Joined:</strong> <span id="joined"></span></p>
+    <p class="info"><strong>Level:</strong> <span id="level" class="level"></span></p>
+  </div>
+
+  <div class="card">
+    <h2>📊 Learning Progress</h2>
+    <p class="info">AI Basics Progress: <strong><span id="aiProgress"></span>%</strong></p>
+    <p class="info">AR Learning Progress: <strong><span id="arProgress"></span>%</strong></p>
+  </div>
+
+  <div class="card">
+    <button onclick="goDashboard()">← Back to Dashboard</button>
+  </div>
+
+</section>
+
+<script>
+  const email = localStorage.getItem("eduverseUser") || "Student";
+  document.getElementById("email").innerText = email;
+
+  let joined = localStorage.getItem("joinedDate");
+  if (!joined) {
+    joined = new Date().toLocaleDateString();
+    localStorage.setItem("joinedDate", joined);
+  }
+  document.getElementById("joined").innerText = joined;
+
+  const ai = Number(localStorage.getItem("aiProgress")) || 20;
+  const ar = Number(localStorage.getItem("arProgress")) || 10;
+
+  document.getElementById("aiProgress").innerText = ai;
+  document.getElementById("arProgress").innerText = ar;
+
+  let level = "Beginner";
+  if (ai >= 50) level = "Intermediate";
+  if (ai >= 100) level = "Advanced";
+
+  document.getElementById("level").innerText = level;
+
+  function goDashboard() {
+    window.location.href = "dashboard.html";
+  }
+</script>
+
+</body>
+</html>
