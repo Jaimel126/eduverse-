@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EduVerse Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #020617;
+      color: white;
+    }
+    header {
+      background: #0f172a;
+      padding: 20px;
+      text-align: center;
+    }
+    .content {
+      padding: 20px;
+    }
+    .card {
+      background: #0f172a;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #38bdf8;
+      color: #020617;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>EduVerse Dashboard</h2>
+    <p id="userEmail"></p>
+  </header>
+
+  <div class="content">
+    <div class="card">
+      <h3>AI Basics</h3>
+      <p>Learn what AI is and how it helps students.</p>
+      <button onclick="goToLesson()">Start Lesson</button>
+    </div>
+
+    <div class="card">
+      <h3>Your Progress</h3>
+      <p id="progress">No lessons completed yet.</p>
+    </div>
+
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyDidOESF8lPLvFs5ryNcJW0VrP0CnvRDHQ",
+  authDomain: "eduverse-bf551.firebaseapp.com",
+  projectId: "eduverse-bf551",
+  storageBucket: "eduverse-bf551.firebasestorage.app",
+  messagingSenderId: "1048542150292",
+  appId: "1:1048542150292:web:50a011a1919f75cc6c3e81"
+};
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "login.html";
+      } else {
+        document.getElementById("userEmail").innerText = user.email;
+      }
+    });
+
+    function goToLesson() {
+      window.location.href = "ai-basics.html";
+    }
+
+    function logout() {
+      auth.signOut().then(() => {
+        window.location.href = "login.html";
+      });
+    }
+  </script>
+
+</body>
+</html>
