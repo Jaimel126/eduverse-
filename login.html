@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>EduVerse Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
@@ -22,38 +22,19 @@
       border-radius: 12px;
       width: 320px;
       text-align: center;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
-    h2 {
-      margin-bottom: 20px;
-    }
-    input {
+    input, button {
       width: 100%;
       padding: 12px;
       margin-top: 12px;
       border-radius: 6px;
       border: none;
-      font-size: 14px;
     }
     button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 20px;
-      border-radius: 6px;
-      border: none;
       background: #38bdf8;
       color: #020617;
       font-weight: bold;
-      font-size: 15px;
       cursor: pointer;
-    }
-    button:hover {
-      opacity: 0.9;
-    }
-    .note {
-      margin-top: 15px;
-      font-size: 12px;
-      opacity: 0.7;
     }
   </style>
 </head>
@@ -62,23 +43,16 @@
 
   <div class="box">
     <h2>EduVerse Login</h2>
-
-    <input id="email" type="email" placeholder="Email address" />
-    <input id="password" type="password" placeholder="Password" />
-
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
     <button id="loginBtn">Login</button>
-
-    <div class="note">
-      Students across Africa & the world 🌍
-    </div>
   </div>
 
-  <!-- Firebase logic -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-const firebaseConfig = {
+    const firebaseConfig = {
   apiKey: "AIzaSyDidOESF8lPLvFs5ryNcJW0VrP0CnvRDHQ",
   authDomain: "eduverse-bf551.firebaseapp.com",
   projectId: "eduverse-bf551",
@@ -88,12 +62,12 @@ const firebaseConfig = {
 };
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    // Login logic
-    document.getElementById("loginBtn").addEventListener("click", () => {
+    const loginBtn = document.getElementById("loginBtn");
+
+    loginBtn.addEventListener("click", () => {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
@@ -106,7 +80,7 @@ const firebaseConfig = {
         .then(() => {
           window.location.href = "dashboard.html";
         })
-        .catch(error => {
+        .catch((error) => {
           alert(error.message);
         });
     });
