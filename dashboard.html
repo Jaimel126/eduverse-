@@ -1,134 +1,124 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>EduVerse Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #020617;
-      color: white;
+      color: #e5e7eb;
     }
     header {
       background: #0f172a;
       padding: 20px;
       text-align: center;
     }
-    .content {
-      padding: 20px;
-      max-width: 800px;
+    section {
+      max-width: 900px;
       margin: auto;
+      padding: 25px;
     }
     .card {
       background: #0f172a;
+      border-radius: 12px;
       padding: 20px;
-      border-radius: 10px;
       margin-bottom: 20px;
     }
+    .progress-container {
+      background: #1e293b;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 18px;
+      margin-top: 10px;
+    }
+    .progress-bar {
+      background: #38bdf8;
+      height: 100%;
+      width: 0%;
+    }
     button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 6px;
+      padding: 10px 16px;
       background: #38bdf8;
       color: #020617;
-      font-weight: bold;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
       margin-top: 10px;
+    }
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h2>EduVerse Dashboard</h2>
-    <p id="userEmail">Loading...</p>
-  </header>
+<header>
+  <h1>Welcome to EduVerse 🎓</h1>
+  <p id="studentEmail">Student</p>
+</header>
 
-  <div class="content">
+<section>
 
-   <div class="card">
-  <h3>AI Basics</h3>
-  <p>Learn AI with text + Augmented Reality.</p>
-  <button onclick="goToLesson()">Start Lesson</button>
-  <br><br>
-  <button onclick="window.location.href='ar-ai.html'">
-    Launch AR Experience
-  </button>
-</div>
-
-    <div class="card">
-      <h3>Your Progress</h3>
-      <p id="progress">Loading progress...</p>
+  <div class="card">
+    <h2>📘 AI Basics</h2>
+    <div class="progress-container">
+      <div id="aiProgress" class="progress-bar"></div>
     </div>
-
-    <button onclick="logout()">Logout</button>
-
+    <button onclick="continueAI()">Continue Learning</button>
   </div>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <div class="card">
+    <h2>📕 AR Learning</h2>
+    <div class="progress-container">
+      <div id="arProgress" class="progress-bar"></div>
+    </div>
+    <button onclick="continueAR()">Continue Learning</button>
+  </div>
 
-  <script>
-const firebaseConfig = {
-  apiKey: "AIzaSyDidOESF8lPLvFs5ryNcJW0VrP0CnvRDHQ",
-  authDomain: "eduverse-bf551.firebaseapp.com",
-  projectId: "eduverse-bf551",
-  storageBucket: "eduverse-bf551.firebasestorage.app",
-  messagingSenderId: "1048542150292",
-  appId: "1:1048542150292:web:50a011a1919f75cc6c3e81"
-};
-    firebase.initializeApp(firebaseConfig);
+  <div class="card">
+    <h2>🏅 Achievements</h2>
+    <p id="badges">No badges earned yet</p>
+  </div>
 
-    const auth = firebase.auth();
-    const db = firebase.firestore();
+  <div class="card">
+    <a href="profile.html">View Profile →</a>
+  </div>
 
-    auth.onAuthStateChanged(user => {
-      if (!user) {
-        window.location.href = "login.html";
-        return;
-      }
+</section>
 
-      document.getElementById("userEmail").innerText = user.email;
+<script>
+  const email = localStorage.getItem("eduverseUser");
+  document.getElementById("studentEmail").innerText = email || "Student";
 
-      db.collection("progress").doc(user.uid).get()
-        .then(doc => {
-          const progressEl = document.getElementById("progress");
+  let aiProgress = Number(localStorage.getItem("aiProgress")) || 20;
+  let arProgress = Number(localStorage.getItem("arProgress")) || 10;
 
-          if (doc.exists && doc.data().aiBasics === true) {
-            progressEl.innerText = "✅ AI Basics: Completed";
-          } else {
-            progressEl.innerText = "❌ AI Basics: Not completed yet";
-          }
-        })
-        .catch(() => {
-          document.getElementById("progress").innerText =
-            "No progress recorded yet.";
-        });
-    });
+  document.getElementById("aiProgress").style.width = aiProgress + "%";
+  document.getElementById("arProgress").style.width = arProgress + "%";
 
-    function goToLesson() {
-      window.location.href = "ai-basics.html";
-    }
+  let badges = [];
+  if (aiProgress >= 100) badges.push("🏅 AI Starter");
+  if (arProgress >= 100) badges.push("🏅 AR Explorer");
 
-    function logout() {
-      auth.signOut().then(() => {
-        window.location.href = "login.html";
-      });
-    }
-  </script>
+  document.getElementById("badges").innerText =
+    badges.length ? badges.join(" • ") : "No badges earned yet";
+
+  function continueAI() {
+    window.location.href = "ai-ar.html";
+  }
+
+  function continueAR() {
+    window.location.href = "ai-ar.html";
+  }
+</script>
 
 </body>
 </html>
-<div class="card">
-  <h3>AI & AR Learning</h3>
-  <p>Explore how AI and AR work with real-world examples.</p>
-  <button onclick="window.location.href='ai-ar.html'">
-    Explore AI & AR
-  </button>
-</div>
