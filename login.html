@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>EduVerse Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     body {
@@ -66,20 +66,34 @@
     <input id="email" type="email" placeholder="Email address" />
     <input id="password" type="password" placeholder="Password" />
 
-    <button onclick="login()">Login</button>
+    <button id="loginBtn">Login</button>
 
     <div class="note">
       Students across Africa & the world 🌍
     </div>
   </div>
 
-  <!-- Firebase connection -->
-  <script src="firebase.js"></script>
+  <!-- Firebase logic -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-  <script>
-    const auth = firebase.auth();
+const firebaseConfig = {
+  apiKey: "AIzaSyDidOESF8lPLvFs5ryNcJW0VrP0CnvRDHQ",
+  authDomain: "eduverse-bf551.firebaseapp.com",
+  projectId: "eduverse-bf551",
+  storageBucket: "eduverse-bf551.firebasestorage.app",
+  messagingSenderId: "1048542150292",
+  appId: "1:1048542150292:web:50a011a1919f75cc6c3e81"
+};
+    };
 
-    function login() {
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Login logic
+    document.getElementById("loginBtn").addEventListener("click", () => {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
@@ -88,14 +102,14 @@
         return;
       }
 
-      auth.signInWithEmailAndPassword(email, password)
+      signInWithEmailAndPassword(auth, email, password)
         .then(() => {
           window.location.href = "dashboard.html";
         })
         .catch(error => {
           alert(error.message);
         });
-    }
+    });
   </script>
 
 </body>
